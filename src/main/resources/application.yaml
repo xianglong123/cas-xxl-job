@@ -1,0 +1,13 @@
+server:
+  port: 8088
+cas:
+  service:
+    my-properties:
+      author: xl
+      age: 23
+spring:
+  aop:
+    auto: true
+# 日志配置
+logging:
+  config: classpath:logback-spring.xml
