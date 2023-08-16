@@ -28,6 +28,7 @@ subprojects { // 子模块的通用配置
 
 
     dependencies {
+        implementation 'com.alibaba:fastjson:1.2.61'
         implementation 'com.xuxueli:xxl-job-core:2.4.0'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation "org.projectlombok:lombok:1.18.12"

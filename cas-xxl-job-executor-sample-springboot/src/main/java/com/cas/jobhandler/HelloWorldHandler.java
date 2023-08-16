@@ -1,5 +1,8 @@
 package com.cas.jobhandler;
 
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
+import com.xxl.job.core.context.XxlJobContext;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import org.springframework.stereotype.Component;
@@ -19,7 +22,7 @@ public class HelloWorldHandler {
 
     @XxlJob("valWorldHandler")
     public void valWorldHandler() throws Exception {
-        String jobParam = XxlJobHelper.getJobParam();
-        XxlJobHelper.log("XXL-JOB, Hello World. ====================== 1111111111111" + jobParam);
+        XxlJobContext xxlJobContext = XxlJobContext.getXxlJobContext();
+        XxlJobHelper.log("XXL-JOB, Hello World. ====================== 1111111111111" + JSONObject.toJSONString(xxlJobContext));
     }
 }
