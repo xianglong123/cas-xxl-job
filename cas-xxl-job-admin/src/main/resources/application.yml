@@ -1,0 +1,79 @@
+# 日志配置
+logging:
+  config: classpath:logback-spring.xml
+server:
+  port: 8080
+  servlet:
+    context-path: /xxl-job-admin
+spring:
+  application:
+    name: cas-xxl-job
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 12345678
+    url: jdbc:mysql://localhost:3306/xxl_job?useSSL=false&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      # 初始化连接池的连接数量，大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次校验，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+  mail:
+    host:
+    port:
+    username:
+    password:
+    from:
+    properties:
+      mail:
+  freemarker:
+    templateLoaderPath: classpath:/templates/
+    suffix: .ftl
+    charset: UTF-8
+    request-context-attribute: request
+    settings:
+      number_format: 0.##########
+  mvc:
+    servlet:
+      load-on-startup: 0
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+
+management:
+  server:
+    servlet:
+      context-path: /actuator
+  health:
+    mail:
+      enabled: false
+xxl:
+  job:
+    executor:
+      appname: cas-xxl-job
+      ip: 127.0.0.1
+      port: 9998
+      logpath:
+      logretentiondays: 30
+    accessToken: default_token
+    logretentiondays: 30
+    i18n: zh_CN
+    triggerpool:
+      fast:
+        max: 200
+      slow:
+        max: 200
+
+
+mybatis:
+  #配置mapper xml文件所在的路径
+  mapper-locations: classpath:mapper/*Mapper.xml

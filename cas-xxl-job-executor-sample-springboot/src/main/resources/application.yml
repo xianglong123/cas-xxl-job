@@ -1,0 +1,20 @@
+# 日志配置
+logging:
+  config: classpath:logback-spring.xml
+server:
+  port: 8081
+spring:
+  application:
+    name: cas-xxl-job-executor-sample
+xxl:
+  job:
+    executor:
+      appname: cas-xxl-job
+      ip: 127.0.0.1
+      port: 9998
+      logpath: /Users/xianglong/IdeaProjects/cas-xxl-job/cas-xxl-job-executor-sample-springboot/logs
+      logretentiondays: 30
+      address:
+    admin:
+      addresses: http://localhost:8080/xxl-job-admin
+    accessToken: default_token

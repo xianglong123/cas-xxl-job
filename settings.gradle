@@ -1,2 +1,4 @@
 rootProject.name = 'cas-xxl-job'
+include 'cas-xxl-job-admin'
+include 'cas-xxl-job-executor-sample-springboot'
 

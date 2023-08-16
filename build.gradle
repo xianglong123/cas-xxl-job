@@ -14,16 +14,29 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    // webservice + springboot
-    implementation 'org.springframework.boot:spring-boot-starter-web-services:2.5.0'
+subprojects { // 子模块的通用配置
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'eclipse-wtp'
+    apply plugin: 'idea'
+    apply plugin: 'jacoco'
 
-    //hutool
-    implementation("cn.hutool:hutool-all:5.7.7")
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+    }
 
-    implementation 'cloud.kwrobot:xxl-job-core:2022.6.0'
+
+    dependencies {
+        implementation 'com.xuxueli:xxl-job-core:2.4.0'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation "org.projectlombok:lombok:1.18.12"
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
 }
 
-test {
-    useJUnitPlatform()
-}
